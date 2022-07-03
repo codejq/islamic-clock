@@ -15,7 +15,7 @@ body {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     color: #17D4FE;
-    font-size: 180px;
+    font-size: 220px;
     font-family: Orbitron;
     letter-spacing: 7px;
    
@@ -44,7 +44,8 @@ function showTime(){
     m = (m < 10) ? "0" + m : m;
     s = (s < 10) ? "0" + s : s;
     
-    var time = h + ":" + m + ":" + s + " " + session;
+    //var time = h + ":" + m + ":" + s + " " + session;
+	var time = h + ":" + m ;
     document.getElementById("MyClockDisplay").innerText = time;
     document.getElementById("MyClockDisplay").textContent = time;
     
