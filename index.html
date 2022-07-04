@@ -38,7 +38,6 @@ html,body {
     left: 50%;
 	text-align:center;
     transform: translateX(-50%) translateY(-50%);
-    color: #17D4FE;
     font-size: 50px;
     font-family: Orbitron;
     letter-spacing: 7px;
@@ -51,7 +50,6 @@ html,body {
     left: 50%;
 	text-align:center;
     transform: translateX(-50%) translateY(-50%);
-    color: #17D4FE;
     font-size: 40px;
     font-family: Orbitron;
     letter-spacing: 7px;
@@ -61,7 +59,6 @@ html,body {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    color: #17D4FE;
     font-size: 260px;
     font-family: Orbitron;
     letter-spacing: 7px;
@@ -70,6 +67,8 @@ html,body {
 <script>
 	var list = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
 	var week = ['الاحد', 'الاتنين', 'الثلاثاء', 'الاربعاء', 'الخميس', 'الجمعة'];
+	var colors = ['#fdffff','#ff1db9' ,'#dc1dff','#1d97ff','#1dffea','#20ff1d','#d2ff1d','#ff901d','#ff1d1d'];
+	document.body.style.color = colors[Math.floor(Math.random()*colors.length)];
 	prayTimes.setMethod('Makkah');
 	prayTimes.adjust( {fajr: 20, dhuhr: -6, asr: 0.96, isha: 17.60} );
 
