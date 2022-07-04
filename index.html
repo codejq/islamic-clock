@@ -1,14 +1,56 @@
-<html>
+<html dir="rtl">
 <head>
 <meta http-equiv="refresh" content="300">
+ <script type="text/javascript" src="PrayTimes.js"></script>
 </head>
 <body>
 <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+	<table class="PrayTimes" border="1" >
+	<tr>
+		<td>صبح</td>
+		<td>شروق</td>
+		<td>ظهر</td>
+		<td>عصر</td>
+		<td>مغرب</td>
+		<td>عشاء</td>
+	</tr>
+	<tr id="times">
+
+	</tr>
+	</table>
+
+<div id='currentDate'  >25/10/20200</div>
 <style>
 body {
     background: black;
+	color: #17D4FE;
 }
 
+#currentDate{
+    position: absolute;
+	width:100%;
+    top: 25px;
+    left: 50%;
+	text-align:center;
+    transform: translateX(-50%) translateY(-50%);
+    color: #17D4FE;
+    font-size: 50px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+}
+
+.PrayTimes{
+    position: absolute;
+	width:100%;
+    bottom: 0;
+    left: 50%;
+	text-align:center;
+    transform: translateX(-50%) translateY(-50%);
+    color: #17D4FE;
+    font-size: 50px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+}
 .clock {
     position: absolute;
     top: 50%;
@@ -18,12 +60,23 @@ body {
     font-size: 260px;
     font-family: Orbitron;
     letter-spacing: 7px;
-   
-
-
 }
 </style>
 <script>
+	var list = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+	var week = ['الاحد', 'الاتنين', 'الثلاثاء', 'الاربعاء', 'الخميس', 'الجمعة'];
+	prayTimes.setMethod('Makkah');
+	prayTimes.adjust( {fajr: 20, dhuhr: -6, asr: 0.96, isha: 17.60} );
+
+	var times = prayTimes.getTimes(new Date(), [24.152775728899236,45.079162499999974], 3);
+ 	var html = '';
+	for(var i in list)	{
+		html += '<td>'+ times[list[i].toLowerCase()]+ '</td>';
+	}
+	var myDate = new Date();
+	document.getElementById('times').innerHTML = html;
+	document.getElementById('currentDate').innerHTML = week[myDate.getDay()] + ' ' +
+	myDate.getDate() + '/' + (myDate.getMonth()+1) + '/' + myDate.getFullYear();
 function showTime(){
     var date = new Date();
     var h = date.getHours(); // 0 - 23
