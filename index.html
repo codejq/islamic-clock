@@ -82,10 +82,7 @@ font-family: 'F-DFont';
 	for(var i in list)	{
 		html += '<td>'+ times[list[i].toLowerCase()]+ '</td>';
 	}
-	var myDate = new Date();
 	document.getElementById('times').innerHTML = html;
-	document.getElementById('currentDate').innerHTML = 	myDate.getDate() + '&rlm;/&rlm;' 
-	+ (myDate.getMonth()+1) + '&rlm;/&rlm;' + myDate.getFullYear() + ' ' + week[myDate.getDay()] ;
 function showTime(){
     var date = new Date();
     var h = date.getHours(); // 0 - 23
@@ -125,9 +122,20 @@ function getHijriDate(date, lang) {
   };
   return date.toLocaleString(lang + '-u-ca-islamic', options);
 }
-
-document.getElementById('currentDate').innerHTML += '  ' +getHijriDate(new Date(), 'ar')
-
+let showHijriDate = false;
+function showDate(){
+	var myDate = new Date();
+	if(showHijriDate){
+		document.getElementById('currentDate').innerHTML =  week[myDate.getDay()] + getHijriDate(new Date(), 'ar');
+	}
+	else{
+		document.getElementById('currentDate').innerHTML = week[myDate.getDay()] + ' ' +	myDate.getDate() + '&rlm;/&rlm;' 
+		+ (myDate.getMonth()+1) + '&rlm;/&rlm;' + myDate.getFullYear()  ;
+	}
+	showHijriDate = !showHijriDate;
+	setTimeout(showDate, 20000);
+}
+showDate();
 
 </script>
 </body>
