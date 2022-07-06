@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
  <script type="text/javascript" src="PrayTimes.js"></script>
 </head>
-<body>
+<body dir='rtl'>
 <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
 	<table class="PrayTimes" border="1" >
 	<tr>
@@ -35,11 +35,12 @@ background: #000;
 #currentDate{
     position: absolute;
 	width:100%;
-    top: 30px;
+    top: 60px;
     left: 50%;
 	text-align:center;
     transform: translateX(-50%) translateY(-50%);
-    font-size: 50px;
+    font-size: 70px;
+	font-weight:800;
     font-family: Orbitron;
     letter-spacing: 7px;
 }
@@ -81,8 +82,8 @@ background: #000;
 	}
 	var myDate = new Date();
 	document.getElementById('times').innerHTML = html;
-	document.getElementById('currentDate').innerHTML = week[myDate.getDay()] + ' ' +
-	myDate.getDate() + '/' + (myDate.getMonth()+1) + '/' + myDate.getFullYear();
+	document.getElementById('currentDate').innerHTML = 	myDate.getDate() + '&rlm;/&rlm;' 
+	+ (myDate.getMonth()+1) + '&rlm;/&rlm;' + myDate.getFullYear() + ' ' + week[myDate.getDay()] ;
 function showTime(){
     var date = new Date();
     var h = date.getHours(); // 0 - 23
@@ -113,6 +114,19 @@ function showTime(){
 }
 
 showTime();
+
+function getHijriDate(date, lang) {
+  var date = date || new Date();
+  lang = lang || 'en';
+  var options = {
+    year: 'numeric', month: 'long', day: 'numeric'
+  };
+  return date.toLocaleString(lang + '-u-ca-islamic', options);
+}
+
+document.getElementById('currentDate').innerHTML += '  ' +getHijriDate(new Date(), 'ar')
+
+
 </script>
 </body>
 </html>
