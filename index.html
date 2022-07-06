@@ -2,7 +2,7 @@
 <head>
 <meta http-equiv="refresh" content="300">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="stylesheet" href="animation.css" />
  <script type="text/javascript" src="PrayTimes.js"></script>
 </head>
 <body>
@@ -22,14 +22,49 @@
 	</table>
 
 <div id='currentDate'  >25/10/20200</div>
+
+  <i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
+	<i></i>
 <style>
-html,body {
-    background: black;
-	color: #17D4FE;
-	margin:0;
-	border:0;
-	padding:0;
-}
+
 
 #currentDate{
     position: absolute;
@@ -70,10 +105,10 @@ html,body {
 	var colors = ['#fdffff','#ff1db9' ,'#dc1dff','#1d97ff','#1dffea','#20ff1d','#d2ff1d','#ff901d','#ff1d1d'];
 	document.body.style.color = colors[Math.floor(Math.random()*colors.length)];
 	prayTimes.setMethod('Makkah');
-	prayTimes.adjust( {fajr: 20, dhuhr: -6, asr: 0.96, isha: 17.60} );
+	//prayTimes.adjust( {fajr: 20, dhuhr: -6, asr: 0.96, isha: 17.60} );
 
 	var times = prayTimes.getTimes(new Date(), 
-	[24.152775728899236,45.079162499999974], 3,0,'12hNS');
+	[24.774265,46.738586], 3,0,'12hNS');
  	var html = '';
 	for(var i in list)	{
 		html += '<td>'+ times[list[i].toLowerCase()]+ '</td>';
