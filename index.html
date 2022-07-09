@@ -70,7 +70,7 @@ font-family: 'F-DFont';
 </style>
 <script>
 	var list = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
-	var week = ['الاحد', 'الاتنين', 'الثلاثاء', 'الاربعاء', 'الخميس', 'الجمعة'];
+	var week = ['','الاحد', 'الاتنين', 'الثلاثاء', 'الاربعاء', 'الخميس', 'الجمعة'];
 	var colors = ['#fdffff','#ff1db9' ,'#dc1dff','#1d97ff','#1dffea','#20ff1d','#d2ff1d','#ff901d','#ff1d1d'];
 	document.body.style.color = colors[Math.floor(Math.random()*colors.length)];
 	prayTimes.setMethod('Makkah');
@@ -126,7 +126,7 @@ let showHijriDate = false;
 function showDate(){
 	var myDate = new Date();
 	if(showHijriDate){
-		document.getElementById('currentDate').innerHTML =  week[myDate.getDay()] + getHijriDate(new Date(), 'ar');
+		document.getElementById('currentDate').innerHTML =  week[myDate.getDay()] + ' ' + getHijriDate(new Date(), 'ar');
 	}
 	else{
 		document.getElementById('currentDate').innerHTML = week[myDate.getDay()] + ' ' +	myDate.getDate() + '&rlm;/&rlm;' 
